@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:modernoaqui/routes/routes.dart';
-import 'package:modernoaqui/service/state_caix.dart';
 import 'package:modernoaqui/service/state_product.dart';
 import 'package:modernoaqui/themes/themes.dart';
 import 'package:modernoaqui/utils/string_const_gerais.dart';
-import 'package:modernoaqui/view/login.dart';
+import 'package:modernoaqui/view/login/login.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -12,7 +11,6 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => StateProduct()),
-        ChangeNotifierProvider(create: (_) => CaixaProvider()),
       ],
       child: const MyApp(),
     ),

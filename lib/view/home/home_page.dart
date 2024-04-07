@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:modernoaqui/components/drawer.dart';
 import 'package:modernoaqui/models/product.dart';
 import 'package:modernoaqui/service/state_product.dart';
 import 'package:modernoaqui/themes/customColors.dart';
@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   TextEditingController pesquisaController = TextEditingController();
   TextEditingController quantidadeController = TextEditingController();
   List<Product> filteredList = [];
-
+//finalizar
   @override
   void dispose() {
     super.dispose();
@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     var total = _amountProducts();
-
+    final provider = Provider.of<StateProduct>(context).getListProduct();
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -47,10 +47,6 @@ class _HomePageState extends State<HomePage> {
             icon: const Icon(Icons.logout),
           ),
         ],
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.menu),
-        ),
         title: const Text(
           StringConstGerais.appName,
         ),
@@ -95,11 +91,16 @@ class _HomePageState extends State<HomePage> {
                 ),
                 child: Column(
                   children: [
-                    const Text(
-                      'Cupom fiscal',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        'Cupom fiscal',
+                        style: TextStyle(fontSize: 20, color: Colors.white),
+                      ),
                     ),
-                    Expanded(child: _buildSelectedProducts()),
+                    const Divider(
+                      height: 5,
+                    ),
                   ],
                 ),
               ),
@@ -162,17 +163,11 @@ class _HomePageState extends State<HomePage> {
             width: 600,
             height: 50,
             child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => Pagamentos(
-                      valor: total,
-                    ),
-                  ));
-                },
-                child: Text("Finalizar")),
+                onPressed: () {}, child: const Text("Finalizar")),
           )
         ],
       ),
+      drawer: const DrawerComponente(),
     );
   }
 
@@ -244,7 +239,8 @@ class _HomePageState extends State<HomePage> {
                                 provider.addProduct(
                                   Product(
                                     id: item.id,
-                                    name: item.name,
+                                    dateEntrada: item.dateEntrada,
+                                    validade: item.validade,
                                     description: item.description,
                                     price: item.price,
                                     quantity:
@@ -308,76 +304,13 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildSelectedProducts() {
-    final provider = Provider.of<StateProduct>(context);
-    return ListView.builder(
-      itemCount: provider.getListProduct().length,
-      itemBuilder: (context, index) {
-        final item = provider.getListProduct().values.toList()[index];
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0),
-          child: Row(
-            children: [
-              Expanded(
-                child: Text(
-                  "${item.codigoBarras}",
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(color: Colors.white, fontSize: 13),
-                ),
-              ),
-              Expanded(
-                flex: 2,
-                child: Text(
-                  "${item.description}",
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(color: Colors.white, fontSize: 13),
-                ),
-              ),
-              Expanded(
-                child: Text(
-                  "QT ${(item.quantity)?.toStringAsFixed(3)}",
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(color: Colors.white, fontSize: 13),
-                ),
-              ),
-              Expanded(
-                child: Text(
-                  "R\$ ${item.price}",
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(color: Colors.white, fontSize: 13),
-                ),
-              ),
-              Expanded(
-                child: Text(
-                  "R\$ ${(item.quantity! * item.price!).toStringAsFixed(2)}",
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(color: Colors.white, fontSize: 13),
-                ),
-              ),
-              IconButton(
-                onPressed: () {
-                  provider.removeProduct(item.id!);
-                },
-                icon: const Icon(
-                  Icons.remove_shopping_cart_outlined,
-                  color: Colors.white,
-                  size: 20,
-                ),
-              )
-            ],
-          ),
-        );
-      },
-    );
-  }
-
   double _amountProducts() {
     final provider = Provider.of<StateProduct>(context);
     var total = 0.0;
-    final item = provider.getListProduct().values.toList();
-    for (var i = 0; i < item.length; i++) {
-      total += item[i].price! * item[i].quantity!;
-    }
+    // final item = provider.getListProduct().values.toList();
+    // for (var i = 0; i < item.length; i++) {
+    // total += item[i].price! * item[i].quantity!;
+    //}
     return total;
   }
 

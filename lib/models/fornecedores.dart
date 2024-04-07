@@ -1,115 +1,111 @@
 class Fornecedores {
-  int? id;
-  String? razaoSocial;
-  String? nomeFantasia;
-  String? cnpj;
-  String? inscricaoEstadual;
-  String? inscricaoMunicipal;
-  String? tipoRegime;
-  String? crt;
-  DateTime? dataConstituicao;
-  String? tipo;
-  String? email;
-  String? logradouro;
-  String? numero;
-  String? complemento;
-  String? cep;
-  String? bairro;
-  String? cidade;
-  String? uf;
-  String? fone;
-  String? contato;
-  int? codigoIbgeCidade;
-  int? codigoIbgeUf;
-  String? registrado;
-  String? naturezaJuridica;
-  String? simei;
-  String? emailPagamento;
-  DateTime? dataRegistro;
-  String? horaRegistro;
+  final int _id;
+  final String _razaoSocial;
+  final String _nomeFantasia;
+  final String _cnpj;
+  final String _tipo;
+  final String _email;
+  final String _logradouro;
+  final String _numero;
+  final String _complemento;
+  final String _cep;
+  final String _bairro;
+  final String _cidade;
 
   Fornecedores({
-    this.id,
-    this.razaoSocial,
-    this.nomeFantasia,
-    this.cnpj,
-    this.inscricaoEstadual,
-    this.inscricaoMunicipal,
-    this.tipoRegime,
-    this.crt,
-    this.dataConstituicao,
-    this.email,
-    this.logradouro,
-    this.numero,
-    this.complemento,
-    this.cep,
-    this.bairro,
-    this.cidade,
-    this.uf,
-    this.fone,
-    this.contato,
-    this.codigoIbgeCidade,
-    this.codigoIbgeUf,
-    this.registrado,
-    this.naturezaJuridica,
-    this.simei,
-    this.emailPagamento,
-  });
+    required int id,
+    required String razaoSocial,
+    required String nomeFantasia,
+    required String cnpj,
+    required String tipo,
+    required String email,
+    required String logradouro,
+    required String numero,
+    required String complemento,
+    required String cep,
+    required String bairro,
+    required String cidade,
+  })  : _id = id,
+        _razaoSocial = razaoSocial,
+        _nomeFantasia = nomeFantasia,
+        _cnpj = cnpj,
+        _tipo = tipo,
+        _email = email,
+        _logradouro = logradouro,
+        _numero = numero,
+        _complemento = complemento,
+        _cep = cep,
+        _bairro = bairro,
+        _cidade = cidade;
 
-  Fornecedores.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    razaoSocial = json['razaoSocial'];
-    nomeFantasia = json['nomeFantasia'];
-    cnpj = json['cnpj'];
-    inscricaoEstadual = json['inscricaoEstadual'];
-    inscricaoMunicipal = json['inscricaoMunicipal'];
-    tipo = json['tipo'];
-    email = json['email'];
-    logradouro = json['logradouro'];
-    numero = json['numero'];
-    complemento = json['complemento'];
-    cep = json['cep'];
-    bairro = json['bairro'];
-    cidade = json['cidade'];
-    uf = json['uf'];
-    fone = json['fone'];
-    contato = json['contato'];
-    codigoIbgeCidade = json['codigoIbgeCidade'];
-    codigoIbgeUf = json['codigoIbgeUf'];
+  int get id => _id;
+  String get razaoSocial => _razaoSocial;
+  String get nomeFantasia => _nomeFantasia;
+  String get cnpj => _cnpj;
+  String get tipo => _tipo;
+  String get email => _email;
+  String get logradouro => _logradouro;
+  String get numero => _numero;
+  String get complemento => _complemento;
+  String get cep => _cep;
+  String get bairro => _bairro;
+  String get cidade => _cidade;
 
-    registrado = json['registrado'];
-    naturezaJuridica = json['naturezaJuridica'];
-    simei = json['simei'];
-    emailPagamento = json['emailPagamento'];
+  Map<String, dynamic> toJson() {
+    return {
+      'id': _id,
+      'razaoSocial': _razaoSocial,
+      'nomeFantasia': _nomeFantasia,
+      'cnpj': _cnpj,
+      'tipo': _tipo,
+      'email': _email,
+      'logradouro': _logradouro,
+      'numero': _numero,
+      'complemento': _complemento,
+      'cep': _cep,
+      'bairro': _bairro,
+      'cidade': _cidade,
+    };
   }
 
-  Map<String, dynamic> get fromJson {
-    Map<String, dynamic> jsonDados = <String, dynamic>{};
-    jsonDados['id'] = id;
-    jsonDados['razaoSocial'] = razaoSocial;
-    jsonDados['nomeFantasia'] = nomeFantasia;
-    jsonDados['cnpj'] = cnpj;
-    jsonDados['inscricaoEstadual'] = inscricaoEstadual;
-    jsonDados['inscricaoMunicipal'] = inscricaoMunicipal;
-    jsonDados['tipo'] = tipo;
-    jsonDados['email'] = email;
-    jsonDados['logradouro'] = logradouro;
-    jsonDados['numero'] = numero;
-    jsonDados['complemento'] = complemento;
-    jsonDados['cep'] = cep;
-    jsonDados['bairro'] = bairro;
-    jsonDados['cidade'] = cidade;
-    jsonDados['uf'] = uf;
-    jsonDados['fone'] = fone;
-    jsonDados['contato'] = contato;
-    jsonDados['codigoIbgeCidade'] = codigoIbgeCidade;
-    jsonDados['codigoIbgeUf'] = codigoIbgeUf;
-
-    jsonDados['registrado'] = registrado;
-    jsonDados['naturezaJuridica'] = naturezaJuridica;
-    jsonDados['simei'] = simei;
-    jsonDados['emailPagamento'] = emailPagamento;
-
-    return jsonDados;
+  Map<String, dynamic> toMap() {
+    return {
+      'id': _id,
+      'razaoSocial': _razaoSocial,
+      'nomeFantasia': _nomeFantasia,
+      'cnpj': _cnpj,
+      'tipo': _tipo,
+      'email': _email,
+      'logradouro': _logradouro,
+      'numero': _numero,
+      'complemento': _complemento,
+      'cep': _cep,
+      'bairro': _bairro,
+      'cidade': _cidade,
+    };
   }
+
+  @override
+  String toString() {
+    return "Fornecedores( id : $_id, razaoSocial : $_razaoSocial, nomeFantasia : $_nomeFantasia, cnpj : $_cnpj, tipo : $_tipo, email : $_email, logradouro : $_logradouro, numero : $_numero, complemento : $_complemento, cep : $_cep, bairro : $_bairro, cidade : $_cidade )";
+  }
+}
+
+void main(List<String> args) {
+  var user = Fornecedores(
+    id: 1,
+    razaoSocial: "Razaosocial",
+    nomeFantasia: "Nomefantasia",
+    cnpj: "Cnpj",
+    tipo: "Tipo",
+    email: "Email",
+    logradouro: "Logradouro",
+    numero: "Numero",
+    complemento: "Complemento",
+    cep: "Cep",
+    bairro: "Bairro",
+    cidade: "Cidade",
+  );
+
+  print(user.toString());
 }

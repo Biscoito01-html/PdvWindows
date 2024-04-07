@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:modernoaqui/models/product.dart';
 
 class StateProduct with ChangeNotifier {
-  static Map<String, Product> listProduct = {};
+  List<Product> listProduct = [];
 
   void addProduct(Product product) {
-    listProduct.addAll({product.id!: product});
+    listProduct.add(product);
     notifyListeners();
   }
 
@@ -15,11 +15,13 @@ class StateProduct with ChangeNotifier {
   }
 
   void updateProduct(Product product) {
-    listProduct.update(product.id!, (value) => product);
+    listProduct.remove(product.id);
+    listProduct.add(product);
+
     notifyListeners();
   }
 
-  Map<String, Product> getListProduct() {
+  List<Product> getListProduct() {
     return listProduct;
   }
 
