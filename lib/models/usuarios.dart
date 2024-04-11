@@ -54,17 +54,3 @@ class Usuarios {
     return 'Usuarios{ id: $id, nome: $nome, email: $email, senha: $senha, celular: $celular, nascimento: $nascimento}';
   }
 }
-
-void main(List<String> args) {
-  var user = Usuarios(
-    id: "2",
-    nome: "Nome",
-    email: "Email",
-    senha: "Senha",
-    celular: "Celular",
-    nascimento: "Nascimento",
-  );
-
-  print(user.toJson());
-  print(user.toMap());
-}

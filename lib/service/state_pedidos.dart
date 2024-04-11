@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:modernoaqui/models/product.dart';
+import 'package:modernoaqui/models/pedidos.dart';
 
-class StateProduct with ChangeNotifier {
-  List<Product> listProduct = [];
+class PedidosProvider with ChangeNotifier {
+  List<Pedidos> listProduct = [];
 
-  void addProduct(Product product) {
+  void addProduct(Pedidos product) {
     listProduct.add(product);
     notifyListeners();
   }
@@ -14,19 +14,9 @@ class StateProduct with ChangeNotifier {
     notifyListeners();
   }
 
-  void updateProduct(Product product) {
+  void updateProduct(Pedidos product) {
     listProduct.removeWhere((element) => element.id == product.id);
     listProduct.add(product);
-
-    notifyListeners();
-  }
-
-  List<Product> getListProduct() {
-    return listProduct;
-  }
-
-  void clearListProduct() {
-    listProduct.clear();
     notifyListeners();
   }
 }

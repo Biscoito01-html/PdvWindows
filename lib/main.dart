@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:modernoaqui/routes/routes.dart';
+import 'package:modernoaqui/service/state_pedidos.dart';
 import 'package:modernoaqui/service/state_product.dart';
 import 'package:modernoaqui/themes/themes.dart';
 import 'package:modernoaqui/utils/string_const_gerais.dart';
@@ -11,6 +12,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => StateProduct()),
+        ChangeNotifierProvider(create: (_) => PedidosProvider()),
       ],
       child: const MyApp(),
     ),

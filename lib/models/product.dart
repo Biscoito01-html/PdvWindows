@@ -1,11 +1,11 @@
 class Product {
-  final String _id;
+  String _id;
   String _codigoBarras;
   String _description;
   double _price;
   double _quantity;
   String _dateEntrada;
-  final String _validade;
+  String _validade;
 
   Product({
     required String id,
@@ -80,6 +80,26 @@ class Product {
       'date': _dateEntrada,
       'isValidade': _validade,
     };
+  }
+
+  void fromMap(Map<String, dynamic> json) {
+    _id = json['id'];
+    _codigoBarras = json['codigoBarras'];
+    _description = json['description'];
+    _price = json['price'];
+    _quantity = json['quantity'];
+    _dateEntrada = json['date'];
+    _validade = json['isValidade'];
+  }
+
+  fromJson(Map<String, dynamic> json) {
+    _id = json['id'];
+    _codigoBarras = json['codigoBarras'];
+    _description = json['description'];
+    _price = json['price'];
+    _quantity = json['quantity'];
+    _dateEntrada = json['date'];
+    _validade = json['isValidade'];
   }
 
   @override

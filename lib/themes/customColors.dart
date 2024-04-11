@@ -17,7 +17,7 @@ class CustomColors {
   static const Color warningDark = Color(0xFFE65100);
 
   // Blue info
-  static const Color info = Color(0xFF01579B);
+  static const Color info = Color.fromARGB(255, 53, 154, 231);
   static const Color infoLight = Color.fromARGB(255, 101, 230, 103);
   static const Color infoDark = Color(0xFF0D47A1);
 

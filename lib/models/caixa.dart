@@ -10,10 +10,7 @@ class Caixa {
   }
 
   void entradaAoCaixa(double entrada) {
-    // ignore: unnecessary_null_comparison
-    if (valores != null) {
-      if (entrada > 0) valores += entrada;
-    }
+    if (entrada > 0) valores += entrada;
   }
 
   void retiraDoCaixa(double saida) {

@@ -90,22 +90,3 @@ class Fornecedores {
     return "Fornecedores( id : $_id, razaoSocial : $_razaoSocial, nomeFantasia : $_nomeFantasia, cnpj : $_cnpj, tipo : $_tipo, email : $_email, logradouro : $_logradouro, numero : $_numero, complemento : $_complemento, cep : $_cep, bairro : $_bairro, cidade : $_cidade )";
   }
 }
-
-void main(List<String> args) {
-  var user = Fornecedores(
-    id: 1,
-    razaoSocial: "Razaosocial",
-    nomeFantasia: "Nomefantasia",
-    cnpj: "Cnpj",
-    tipo: "Tipo",
-    email: "Email",
-    logradouro: "Logradouro",
-    numero: "Numero",
-    complemento: "Complemento",
-    cep: "Cep",
-    bairro: "Bairro",
-    cidade: "Cidade",
-  );
-
-  print(user.toString());
-}
